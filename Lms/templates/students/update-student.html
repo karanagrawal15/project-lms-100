@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Student Details</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-100 to-purple-200 min-h-screen flex items-center justify-center p-4">
+
+<div class="bg-white rounded-3xl shadow-2xl w-full sm:max-w-3xl p-6 sm:p-10">
+
+    <!-- Header -->
+    <div class="text-center mb-8">
+        <div class="w-16 h-16 mx-auto rounded-full bg-indigo-100 flex items-center justify-center mb-3">
+            <i data-feather="edit" class="text-indigo-600 w-8 h-8"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-800">Update {{student.stu_name}}</h1>
+        <p class="text-gray-500 mt-1">Edit student information below</p>
+    </div>
+
+    <!-- Form Grid -->
+    <form action="" method="post" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+        <!-- Full Name -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Full Name</label>
+            <input type="text" name="stu_name" value="{{student.stu_name}}" placeholder="Enter full name"
+                   class="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none transition"/>
+        </div>
+
+        <!-- Date of Birth -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Date of Birth</label>
+            <input type="date" name="stu_age" value="{{ student.stu_age.strftime('%Y-%m-%d') }}"
+                   class="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none transition"/>
+        </div>
+
+        <!-- Email -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Email</label>
+            <input type="email" name="stu_email" value="{{student.stu_email}}" placeholder="Enter Email"
+                   class="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none transition"/>
+        </div>
+
+        <!-- Mobile -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Mobile</label>
+            <input type="number" name="stu_phone" value="{{student.stu_phone}}" placeholder="Enter Mobile No"
+                   class="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none transition"/>
+        </div>
+
+        <!-- Address (spans both columns) -->
+        <div class="sm:col-span-2">
+            <label class="block text-gray-700 font-medium mb-1">Address</label>
+            <textarea name="stu_address" rows="3"
+                      class="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none transition resize-none">{{student.stu_address}}</textarea>
+        </div>
+
+        <!-- Buttons (spans both columns) -->
+        <div class="sm:col-span-2 flex flex-col sm:flex-row gap-4">
+            <button type="submit"
+                    class="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition">
+                Update
+            </button>
+            <button type="reset"
+                    class="flex-1 bg-red-500 text-white py-3 rounded-xl font-semibold hover:bg-red-600 transition">
+                Reset
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+feather.replace()
+</script>
+
+</body>
+</html>

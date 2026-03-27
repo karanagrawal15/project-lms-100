@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Details</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#4f46e5,#9333ea,#ec4899);
+}
+
+/* Card Container */
+
+.container{
+background:white;
+padding:40px;
+border-radius:15px;
+width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+text-align:center;
+}
+
+/* Heading */
+
+h1{
+margin-bottom:25px;
+color:#333;
+}
+
+/* Profile Icon */
+
+.profile{
+width:90px;
+height:90px;
+border-radius:50%;
+background:#e5e7eb;
+margin:auto;
+margin-bottom:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+}
+
+/* Student Details Section */
+
+.details{
+text-align:left;
+margin-top:15px;
+}
+
+.details p{
+padding:12px 5px;
+border-bottom:1px solid #eee;
+font-size:16px;
+}
+
+.label{
+font-weight:600;
+color:#555;
+}
+
+.value{
+float:right;
+color:#111;
+}
+
+/* Button Section */
+
+.buttons{
+margin-top:35px;
+display:flex;
+justify-content:space-between; /* Back left , Update right */
+align-items:center;
+}
+
+/* Buttons Style */
+
+button{
+padding:10px 22px;
+border:none;
+border-radius:8px;
+font-size:14px;
+cursor:pointer;
+color:white;
+transition:0.3s;
+font-weight:500;
+}
+
+/* Back Button */
+
+.back{
+background:#2563eb;
+}
+
+.back:hover{
+background:#1d4ed8;
+}
+
+/* Update Button */
+
+.update{
+background:#059669;
+}
+
+.update:hover{
+background:#047857;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📘 Student Details</h1>
+
+<div class="profile">
+👤
+</div>
+
+<div class="details">
+
+<p><span class="label">ID</span> <span class="value">{{student.id}}</span></p>
+
+<p><span class="label">Name</span> <span class="value">{{student.stu_name}}</span></p>
+
+<p><span class="label">Age</span> <span class="value">{{student.stu_age}}</span></p>
+
+<p><span class="label">Email</span> <span class="value">{{student.stu_email}}</span></p>
+
+<p><span class="label">Phone</span> <span class="value">{{student.stu_phone}}</span></p>
+
+<p><span class="label">Address</span> <span class="value">{{student.stu_address}}</span></p>
+
+</div>
+
+<!-- Buttons Section -->
+
+<div class="buttons">
+
+<a href="{{url_for('student.all_students_data')}}">
+<button class="back">Back</button>
+</a>
+
+<a href="{{url_for('student.students_update',id=student.id)}}">
+<button class="update">Update</button>
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Karan's Library - Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#4f46e5,#9333ea,#ec4899);
+}
+
+.container{
+background:white;
+padding:45px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+width:350px;
+text-align:center;
+}
+
+h1{
+margin-bottom:25px;
+color:#333;
+}
+
+label{
+display:block;
+text-align:left;
+margin-top:15px;
+font-weight:500;
+color:#444;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:14px;
+outline:none;
+transition:0.3s;
+}
+
+input:focus{
+border-color:#6366f1;
+box-shadow:0 0 5px rgba(99,102,241,0.5);
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:25px;
+background:#2563eb;
+border:none;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#1d4ed8;
+transform:scale(1.03);
+}
+
+.back{
+margin-top:15px;
+display:inline-block;
+text-decoration:none;
+color:#6366f1;
+font-size:14px;
+}
+
+.back:hover{
+text-decoration:underline;
+}
+
+.footer{
+margin-top:20px;
+font-size:12px;
+color:#777;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔐 Library Login</h1>
+
+<form action="/login" method="POST">
+
+<label>Email ID</label>
+<input name="user_email" type="email" placeholder="Enter Email ID" required>
+
+<label>Password</label>
+<input name="user_password" type="password" placeholder="Enter Password" required>
+
+<button type="submit" href="/">Login</button>
+
+</form>
+
+<a class="back" href="/">⬅ Back to Home</a>
+
+<div class="footer">
+<p>Smart Library Management System © 2026</p>
+</div>
+
+</div>
+
+</body>
+</html>

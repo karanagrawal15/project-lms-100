@@ -1,12 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Karan'sLibrary</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#4f46e5,#9333ea,#ec4899);
+}
+
+.container{
+background:white;
+padding:50px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+text-align:center;
+width:400px;
+}
+
+h1{
+margin-bottom:30px;
+color:#333;
+}
+
+.login-btn{
+position:absolute;
+top:15px;
+right:20px;
+padding:6px 14px;
+background:#08ec1f;
+color:rgb(5, 0, 0);
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:20px;
+transition:0.3s;
+width:auto;   /* IMPORTANT */
+}
+
+.login-btn:hover{
+background:#99cb43;
+transform:scale(1.05);
+}
+
+button{
+width:100%;
+padding:15px;
+margin:10px 0;
+font-size:18px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+color:white;
+}
+
+.student{
+background:#2563eb;
+}
+
+.student:hover{
+background:#1d4ed8;
+transform:scale(1.05);
+}
+
+.author{
+background:#059669;
+}
+
+.author:hover{
+background:#047857;
+transform:scale(1.05);
+}
+
+.show{
+background:#f59e0b;
+}
+
+.show:hover{
+background:#d97706;
+transform:scale(1.05);
+}
+
+.footer{
+margin-top:20px;
+font-size:14px;
+color:#050303;
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Welcome to Python Programming</h1>
+
+<div class="container">
+
+<h1>📚 Welcome To Karan's Library</h1>
+
+<a href="{{url_for('student.student_register')}}">
+<button class="student">Register As Student</button>
+</a>
+
+<a href="{{url_for('student.all_students_data')}}">
+<button class="show">Show All Students</button>
+</a>
+
+<a href="{{url_for('author.author_register')}}">
+<button class="author">Register As Author</button>
+</a>
+
+
+<a href="{{url_for('author.all_authors_data')}}">
+<button class="show">Show All Authors</button>
+</a>
+
+<a href="{{url_for('login')}}">
+<button class="login-btn">User Login</button>
+</a>
+
+<div class="footer">
+<p style="text-align:center; font-weight:bold;">
+Smart Library Management System Developed by Karan © 2026
+</p>
+</div>
+
+</div>
+
 </body>
 </html>
-

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>All Students</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#4f46e5,#9333ea,#ec4899);
+min-height:100vh;
+padding:40px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1{
+text-align:center;
+margin-bottom:25px;
+color:#333;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#4f46e5;
+color:white;
+padding:12px;
+text-align:center;
+}
+
+td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+background:#f3f4f6;
+}
+
+button{
+padding:8px 14px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+transition:0.3s;
+color:white;
+}
+
+.read{
+background:#2563eb;
+}
+
+.read:hover{
+background:#1d4ed8;
+}
+
+.update{
+background:#059669;
+}
+
+.update:hover{
+background:#047857;
+}
+
+.delete{
+background:#dc2626;
+}
+
+.delete:hover{
+background:#b91c1c;
+}
+
+/* Flash Message CSS */
+
+.flash-message{
+background:#d1fae5;
+color:#065f46;
+padding:12px;
+border-radius:6px;
+text-align:center;
+margin-bottom:15px;
+font-weight:600;
+animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut{
+0%{opacity:1;}
+80%{opacity:1;}
+100%{opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Flash Success Message -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flash-message">
+{{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+
+{% if students %}
+
+<h1>📚 All Students</h1>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Address</th>
+<th colspan="3">Action</th>
+</tr>
+
+{% for stu in students %}
+
+<tr>
+<td>{{stu.id}}</td>
+<td>{{stu.stu_name}}</td>
+<td>{{stu.stu_age}}</td>
+<td>{{stu.stu_email}}</td>
+<td>{{stu.stu_phone}}</td>
+<td>{{stu.stu_address}}</td>
+
+<td>
+<a href="{{url_for('student.students_details',id=stu.id)}}">
+<button class="read">Read</button>
+</a>
+</td>
+
+<td>
+<a href="{{url_for('student.students_update',id=stu.id)}}">
+<button class="update">Update</button>
+</a>
+</td>
+
+<td>
+<a href="{{url_for('student.students_delete',id=stu.id)}}"
+onclick="return confirm('Are you sure you want to delete student?')">
+<button class="delete">Delete</button>
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<center><h1>No students found.</h1></center>
+
+<center>
+<a href="{{url_for('student.student_register')}}">
+<button class="student" style="background-color:rgb(97, 58, 188); color:white;">
+Register As Student
+</button>
+</a>
+</center>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Registration</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#4f46e5,#9333ea,#ec4899);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.container{
+background:rgb(164, 163, 163);
+width:450px;
+padding:35px;
+border-radius:15px;
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+.title{
+text-align:center;
+margin-bottom:25px;
+color:#333;
+font-size:26px;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+.form-group label{
+font-weight:600;
+display:block;
+margin-bottom:6px;
+color:#444;
+}
+
+.form-control{
+width:100%;
+padding:11px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:14px;
+outline:none;
+transition:0.2s;
+}
+
+.form-control:focus{
+border-color:#6366f1;
+box-shadow:0 0 5px rgba(99,102,241,0.4);
+}
+
+textarea.form-control{
+height:85px;
+resize:none;
+}
+
+.button-group{
+display:flex;
+gap:12px;
+margin-top:20px;
+}
+
+button{
+flex:1;
+padding:12px;
+border:none;
+border-radius:8px;
+font-size:15px;
+cursor:pointer;
+color:white;
+transition:0.3s;
+font-weight:600;
+}
+
+.btn-submit{
+background:#2563eb;
+}
+
+.btn-submit:hover{
+background:#1d4ed8;
+transform:scale(1.03);
+}
+
+.btn-reset{
+background:#dc2626;
+}
+
+.btn-reset:hover{
+background:#b91c1c;
+transform:scale(1.03);
+}
+
+.footer{
+text-align:center;
+margin-top:18px;
+font-size:13px;
+color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 class="title">🎓 Student Registration</h2>
+
+<form action="" method="post" enctype="multipart/form-data">
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" name="stu_name" class="form-control" placeholder="Enter your full name">
+</div>
+
+<div class="form-group">
+<label>Student Age</label>
+<input type="date" name="stu_age" class="form-control">
+</div>
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" name="stu_email" class="form-control" placeholder="Enter Your Email">
+</div>
+
+<div class="form-group" style="position: relative;">
+    <label>Password</label>
+    <input type="password" name="stu_password" class="form-control" placeholder="Enter Your Password" id="passwordField">
+    
+    <!-- Eye icon -->
+    <span id="togglePassword" style="position: absolute; right: 15px; top: 40px; cursor: pointer; font-size: 18px;">
+        👁️
+    </span>
+</div>
+
+<script>
+const passwordField = document.getElementById('passwordField');
+const togglePassword = document.getElementById('togglePassword');
+
+togglePassword.addEventListener('click', function () {
+    // toggle the type attribute
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+
+    // toggle the eye icon (optional: change icon)
+    this.textContent = type === 'password' ? '👁️' : '🙈';
+});
+</script>
+
+<div class="form-group">
+<label>Mobile Number</label>
+<input type="number" name="stu_phone" class="form-control" placeholder="Enter Your Mobile Number">
+</div>
+
+<div class="form-group">
+<label>Address</label>
+<textarea name="stu_address" class="form-control" placeholder="Enter Your Address"></textarea>
+</div>
+
+<div class="button-group">
+<button type="submit" class="btn-submit">Register</button>
+<button type="reset" class="btn-reset">Reset</button>
+</div>
+
+</form>
+
+<div class="footer">
+Library Management System
+</div>
+
+</div>
+
+</body>
+</html>
